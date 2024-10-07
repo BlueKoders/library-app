@@ -4,6 +4,7 @@ import BookList from './pages/bookList';
 import AddBook from './pages/addBook';
 import BookDetails from './pages/bookDetails';
 import LandingPage from './pages/landingPage';
+import EditBook from './pages/editBook';
 
 
 function App() {
@@ -24,6 +25,10 @@ function App() {
     {
       path: "/books/:id",
       element: <BookDetails />,
+    },
+    {
+      path: "/edit",
+      element: <EditBook />
     }
   ])
 

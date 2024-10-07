@@ -1,23 +1,32 @@
-// components/AddBook.js
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+// components/EditBook.js
+import React, { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 
-function AddBook() {
+function EditBook() {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [year, setYear] = useState('');
+  const { id } = useParams();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // Fetch book details from API
+    // For now, we'll use dummy data
+    setTitle('To Kill a Mockingbird');
+    setAuthor('Harper Lee');
+    setYear('1960');
+  }, [id]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add book API call would go here
-    alert('Book added successfully');
-    navigate('/');
+    // Update book API call would go here
+    alert('Book updated successfully');
+    navigate(`/book/${id}`);
   };
 
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-4">Add New Book</h1>
+      <h1 className="text-2xl font-bold mb-4">Edit Book</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label htmlFor="title" className="block mb-1">Title:</label>
@@ -52,12 +61,12 @@ function AddBook() {
             required
           />
         </div>
-        <button type="submit" className="bg-green-500 text-white px-4 py-2 rounded">
-          Add Book
+        <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
+          Update Book
         </button>
       </form>
     </div>
   );
 }
 
-export default AddBook;
+export default EditBook;
