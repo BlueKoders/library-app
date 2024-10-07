@@ -1,20 +1,32 @@
 import './App.css';
-import Navbar from './components/Navbar';
-import Header from './components/Header';
-import GetStarted from './components/GetStarted';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import BookList from './pages/bookList';
+import AddBook from './pages/addBook';
+import BookDetails from './pages/bookDetails';
+import LandingPage from './pages/landingPage';
+
 
 function App() {
 
-  return (
-  <>
-  <div>
-    <Navbar />
-    <Header />
-    <GetStarted />
-  </div>
-  </>
-    
-  )
-}
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <LandingPage />
+    },
+    {
+      path: "/books",
+      element: <BookList />,
+    },
+    {
+      path: "/add-new",
+      element: <AddBook />,
+    },
+    {
+      path: "/books/:id",
+      element: <BookDetails />,
+    }
+  ])
 
+  return <RouterProvider router={router} />
+}
 export default App;

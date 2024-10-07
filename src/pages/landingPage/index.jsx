@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import Navbar from './components/Navbar';
 
-const Header = () => {
+const LandingPage = () => {
   const [text1, setText1] = useState('');
   const [text2, setText2] = useState('');
   const fullText1 = "Welcome to ShelfLife Cataloging!";
@@ -33,9 +34,26 @@ const Header = () => {
     }
   }, [index2, firstPartDone]);
 
+  // Reset the effect to loop once both texts are completed
+  useEffect(() => {
+    if (index1 === fullText1.length && index2 === fullText2.length) {
+      const resetTimer = setTimeout(() => {
+        setText1('');
+        setText2('');
+        setIndex1(0);
+        setIndex2(0);
+        setFirstPartDone(false);
+      }, 2000); // Adjust delay for how long you want to wait before restarting
+
+      return () => clearTimeout(resetTimer);
+    }
+  }, [index1, index2]);
+
   return (
     <header className="relative h-screen flex items-center justify-center text-white">
       {/* Background image */}
+      <Navbar />
+     
       <div 
         className="absolute inset-0 bg-cover bg-center z-0" 
         style={{backgroundImage: "url('./src/assets/images/library2.jpg')"}}
@@ -63,4 +81,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default LandingPage;
