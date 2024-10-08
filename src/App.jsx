@@ -38,7 +38,7 @@ function App() {
       element: <BookDetails />,
     },
     {
-      path: "/edit",
+      path: "/edit/:id",
       element: <EditBook />
     },
     {

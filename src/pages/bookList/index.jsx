@@ -19,8 +19,8 @@ function BookList() {
       <h1 className="text-2xl font-bold mb-4">Book List</h1>
       <ul className="space-y-2">
         {books.map((book) => (
-          <li key={book.id} className="bg-white p-4 rounded shadow">
-            <Link to={`/book/${book.id}`} className="text-blue-500 hover:text-blue-700">
+          <li key={books.id} className="bg-white p-4 rounded shadow">
+            <Link to={`/books/${books.id}`} className="text-blue-500 hover:text-blue-700">
               {book.title} by {book.author}
             </Link>
           </li>
