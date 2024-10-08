@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
+import { Link } from 'react-router-dom';
 
 const LandingPage = () => {
   const [text1, setText1] = useState('');
@@ -50,18 +51,19 @@ const LandingPage = () => {
   }, [index1, index2]);
 
   return (
+    <>
     <header className="relative h-screen flex items-center justify-center text-white">
       {/* Background image */}
-      <Navbar />
-     
-      <div 
-        className="absolute inset-0 bg-cover bg-center z-0" 
-        style={{backgroundImage: "url('./src/assets/images/library2.jpg')"}}
+        <Navbar />
+
+      <div
+        className="absolute inset-0 bg-cover bg-center z-0"
+        style={{ backgroundImage: "url('./src/assets/images/library2.jpg')" }}
       ></div>
-      
+
       {/* Overlay */}
       <div className="absolute inset-0 bg-black opacity-50 z-10"></div>
-      
+
       {/* Content */}
       <div className="relative z-20 text-center">
         <h1 className="text-4xl md:text-6xl font-bold mb-4">
@@ -73,11 +75,13 @@ const LandingPage = () => {
         <p className="text-xl md:text-2xl mb-8">
           Your library has never looked so good
         </p>
-        <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out transform hover:scale-105">
+        <Link to="/sign-up" className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out transform hover:scale-105">
           Get Started
-        </button>
+        </Link>
       </div>
     </header>
+  
+    </>
   );
 };
 

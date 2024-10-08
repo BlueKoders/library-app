@@ -5,6 +5,8 @@ import AddBook from './pages/addBook';
 import BookDetails from './pages/bookDetails';
 import LandingPage from './pages/landingPage';
 import EditBook from './pages/editBook';
+import GetStarted from './pages/landingPage/components/GetStarted';
+import Login from './pages/landingPage/components/Login';
 
 
 function App() {
@@ -13,6 +15,14 @@ function App() {
     {
       path: "/",
       element: <LandingPage />
+    },
+    {
+      path: "/login",
+      element: <Login />
+    },
+    {
+      path: "/sign-up",
+      element: <GetStarted />
     },
     {
       path: "/books",

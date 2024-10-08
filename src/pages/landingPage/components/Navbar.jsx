@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BookOpen } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -32,12 +33,12 @@ const Navbar = () => {
             <button className={`px-3 py-2 rounded-md text-sm font-medium ${isScrolled ? 'text-gray-900' : 'text-white'} hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500`}>
               Contact Us
             </button>
-            <button className={`px-3 py-2 rounded-md text-sm font-medium ${isScrolled ? 'text-gray-900' : 'text-white'} hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500`}>
+            <Link to="/login" className={`px-3 py-2 rounded-md text-sm font-medium ${isScrolled ? 'text-gray-900' : 'text-white'} hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500`}>
               Login
-            </button>
-            <button className="px-4 py-2 rounded-md text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+            </Link>
+            <Link to="/sign-up" className="px-4 py-2 rounded-md text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
               Get Started
-            </button>
+            </Link>
           </div>
         </div>
       </div>
