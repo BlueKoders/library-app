@@ -1,6 +1,8 @@
 // components/BookDetails.js
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
+import Sidebar from './components/Sidebar';
+
 
 function BookDetails() {
   const [book, setBook] = useState(null);
@@ -21,8 +23,12 @@ function BookDetails() {
 
   if (!book) return <div>Loading...</div>;
 
+
   return (
     <div className="bg-white p-4 rounded shadow">
+      <Sidebar/>
+
+      
       <h1 className="text-2xl font-bold mb-4">{book.title}</h1>
       <p>Author: {book.author}</p>
       <p>Year: {book.year}</p>
