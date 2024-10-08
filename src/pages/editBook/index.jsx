@@ -1,6 +1,7 @@
 // components/EditBook.js
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import Sidebar from './components/Sidebar';
 
 function EditBook() {
   const [title, setTitle] = useState('');
@@ -25,7 +26,9 @@ function EditBook() {
   };
 
   return (
+   
     <div>
+       <Sidebar />
       <h1 className="text-2xl font-bold mb-4">Edit Book</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>

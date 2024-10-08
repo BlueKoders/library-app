@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import Sidebar from './components/Sidebar';
 
 function AddBook() {
   const [title, setTitle] = useState('');
@@ -24,6 +25,7 @@ function AddBook() {
 
   return (
     <div>
+     <Sidebar />
       <h1 className="text-2xl font-bold mb-4">Add New Book</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
