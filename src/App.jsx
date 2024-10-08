@@ -7,6 +7,7 @@ import LandingPage from './pages/landingPage';
 import EditBook from './pages/editBook';
 import GetStarted from './pages/landingPage/components/GetStarted';
 import Login from './pages/landingPage/components/Login';
+import Footer from './pages/landingPage/components/Footer';
 
 
 function App() {
@@ -39,6 +40,10 @@ function App() {
     {
       path: "/edit",
       element: <EditBook />
+    },
+    {
+      path: "/footer",
+      element: <Footer />
     }
   ])
 

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import { Link } from 'react-router-dom';
+import Footer from './components/Footer';
+
 
 const LandingPage = () => {
   const [text1, setText1] = useState('');
@@ -73,14 +75,14 @@ const LandingPage = () => {
           <span className="animate-blink">|</span>
         </h1>
         <p className="text-xl md:text-2xl mb-8">
-          Your library has never looked so good
+          Your library has never looked so good.
         </p>
         <Link to="/sign-up" className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out transform hover:scale-105">
           Get Started
         </Link>
       </div>
     </header>
-  
+    <Footer />
     </>
   );
 };
