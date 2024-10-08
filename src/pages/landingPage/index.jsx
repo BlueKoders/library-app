@@ -82,6 +82,15 @@ const LandingPage = () => {
         </Link>
       </div>
     </header>
+      <div>
+        <div>
+          <video src=""></video>
+        </div>
+        <div>
+          <h1>Create & Share Your Collection</h1>
+          <p>Our library management service caters to libraries, schools, organizations, and home catalogs. Our online software lets you create multiple collections, catalog books, board games, movies, music, and video games, create tags, leave notes, import/export, share your collections and much more. We offer two different subscription options to best fit your needs. Libib is the best place for cataloging and managing your media available online. Now which version is the best for you?</p>
+        </div>
+      </div>
     <Footer />
     </>
   );
