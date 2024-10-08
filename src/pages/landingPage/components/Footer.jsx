@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-import React from 'react'
-
-const Footer = () => {
-  return (
-    <div>Footer</div>
-  )
-}
-
-export default Footer;
-=======
 import React from 'react';
 
 const Footer = () => {
@@ -66,4 +55,3 @@ const Footer = () => {
 };
 
 export default Footer;
->>>>>>> 0c0be6451947e32b1cb90ba2fe12d8d4f139ce0d
