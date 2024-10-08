@@ -21,7 +21,7 @@ function EditBook() {
     e.preventDefault();
     // Update book API call would go here
     alert('Book updated successfully');
-    navigate(`/book/${id}`);
+    navigate(`/books/${id}`);
   };
 
   return (

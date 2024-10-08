@@ -1,4 +1,3 @@
-// components/AddBook.js
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -6,13 +5,21 @@ function AddBook() {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [year, setYear] = useState('');
+  const [description, setDescription] = useState('');
+  const [file, setFile] = useState(null);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // Add book API call would go here
+    // You'd typically send the file to your server here as well
+    console.log('File to upload:', file);
     alert('Book added successfully');
     navigate('/');
+  };
+
+  const handleFileChange = (e) => {
+    setFile(e.target.files[0]);
   };
 
   return (
@@ -52,10 +59,30 @@ function AddBook() {
             required
           />
         </div>
-        <Link to="/books" type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
+        <div>
+          <label htmlFor="description" className="block mb-1">Description:</label>
+          <textarea
+            id="description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            className="w-full px-3 py-2 border rounded"
+            rows="4"
+          />
+        </div>
+        <div>
+          <label htmlFor="file" className="block mb-1">Upload Book File:</label>
+          <input
+            type="file"
+            id="file"
+            onChange={handleFileChange}
+            className="w-full px-3 py-2 border rounded"
+          />
+        </div>
+        <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
           Add Book
-        </Link>
+        </button>
       </form>
+      <Link to="/books" className="block mt-4 text-blue-500">Back to Book List</Link>
     </div>
   );
 }

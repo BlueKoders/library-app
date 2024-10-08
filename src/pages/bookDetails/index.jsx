@@ -18,7 +18,7 @@ function BookDetails() {
   const handleDelete = () => {
     // Delete book API call would go here
     alert('Book deleted successfully');
-    navigate('/');
+    navigate('/books');
   };
 
   if (!book) return <div>Loading...</div>;
