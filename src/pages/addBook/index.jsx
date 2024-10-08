@@ -1,6 +1,6 @@
 // components/AddBook.js
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function AddBook() {
   const [title, setTitle] = useState('');
@@ -52,9 +52,9 @@ function AddBook() {
             required
           />
         </div>
-        <button type="submit" className="bg-green-500 text-white px-4 py-2 rounded">
+        <Link to="/books" type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
           Add Book
-        </button>
+        </Link>
       </form>
     </div>
   );
