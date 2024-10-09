@@ -33,7 +33,7 @@ function BookList() {
 
     // Filter books based on the search query
     const filtered = books.filter((book) =>
-      book.title.toLowerCase().includes(query) || 
+      book.title.toLowerCase().includes(query) ||
       book.author.toLowerCase().includes(query)
     );
     setFilteredBooks(filtered);
@@ -41,30 +41,28 @@ function BookList() {
 
   return (
     <PageFlipWrapper>
-      <div className="flex h-screen"> {/* Ensure full height for the layout */}
+      <div className=" flex h-screen"> {/* Ensure full height for the layout */}
         <Sidebar onToggle={handleSidebarToggle} />
-        <main 
-          className={`flex-1 p-6 transition-all duration-300`} 
+        <main
+          className={` search flex-1 p-6 transition-all duration-300`}
           style={{ marginLeft: sidebarExpanded ? '256px' : '64px' }} // Adjust margin based on sidebar width
         >
-          <h1 className="text-2xl font-bold mb-4">Book List</h1>
+          <h1 className="text-5xl font-bold text-white  mb-4">Book List</h1>
 
           {/* Search Area */}
-          <div className="mb-4">
-            <input 
-              type="text" 
-              placeholder="Search for books..." 
-              value={searchQuery}
-              onChange={handleSearchChange}
-              className="w-full p-2 rounded border border-gray-300 focus:outline-none focus:border-blue-500 transition"
+          <div className="mb-4 ">
+            <input
+              type="text"
+              placeholder="Search for books..."
+              className="-950 w-72 ml-96 p-5 mt-6 rounded border border-gray-300 focus:outline-none focus:border-blue-500 transition"
             />
           </div>
 
-          <ul className="space-y-2">
+          <ul className="  mirror space-y-4  ">
             {filteredBooks.length > 0 ? (
               filteredBooks.map((book) => (
-                <li key={book.id} className="bg-white p-4 rounded shadow">
-                  <Link to={`/books/${book.id}`} className="text-blue-600 hover:text-blue-800">
+                <li key={book.id} className="bg-white w-96 ml-72 p-4 mt-10 rounded shadow">
+                  <Link to={`/books/${book.id}`} className="text-orange-700 font-bold hover:text-blue-800">
                     {book.title} by {book.author}
                   </Link>
                 </li>
