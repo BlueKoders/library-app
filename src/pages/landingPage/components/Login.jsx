@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Eye, EyeOff } from 'lucide-react';
+// import PageFlipWrapper from '../../../components/PageFlipWrapper';
 
 const Login = () => {
   // State hooks for form inputs and password visibility
@@ -16,7 +17,9 @@ const Login = () => {
   };
 
   return (
-    // Main container with full height and centered content
+    <>
+    {/* <PageFlipWrapper> */}
+    {/* Main container with full height and centered content */}
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       {/* Login form card */}
       <div className="bg-white p-8 rounded-lg shadow-md w-96">
@@ -76,12 +79,14 @@ const Login = () => {
         </form>
         {/* Sign up link */}
         <div className="mt-4 text-center">
-          <Link to="/signup" className="text-sm text-blue-500 hover:underline">
+          <Link to="/sign-up" className="text-sm text-blue-500 hover:underline">
             Don't have an account? Sign Up!
           </Link>
         </div>
       </div>
     </div>
+    {/* </PageFlipWrapper> */}
+    </>
   );
 };
 

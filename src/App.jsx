@@ -1,5 +1,6 @@
 import './App.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 import BookList from './pages/bookList';
 import AddBook from './pages/addBook';
 import BookDetails from './pages/bookDetails';
@@ -8,10 +9,10 @@ import EditBook from './pages/editBook';
 import GetStarted from './pages/landingPage/components/GetStarted';
 import Login from './pages/landingPage/components/Login';
 import Footer from './pages/landingPage/components/Footer';
+import PageFlipWrapper from './components/PageFlipWrapper'; // The wrapper for flip effect
 
-
+// App component
 function App() {
-
   const router = createBrowserRouter([
     {
       path: "/",
@@ -19,37 +20,40 @@ function App() {
     },
     {
       path: "/login",
-      element: <Login />
+      element: <PageFlipWrapper><Login /></PageFlipWrapper>
     },
     {
       path: "/sign-up",
-      element: <GetStarted />
+      element: <PageFlipWrapper><GetStarted /></PageFlipWrapper>
     },
     {
       path: "/books",
-      element: <BookList />,
+      element: <PageFlipWrapper><BookList /></PageFlipWrapper>,
     },
     {
       path: "/add-new",
-      element: <AddBook />,
+      element: <PageFlipWrapper><AddBook /></PageFlipWrapper>,
     },
     {
       path: "/books/:id",
-      element: <BookDetails />,
+      element: <PageFlipWrapper><BookDetails /></PageFlipWrapper>,
     },
     {
       path: "/edit/:id",
-      element: <EditBook />
+      element: <PageFlipWrapper><EditBook /></PageFlipWrapper>
     },
     {
       path: "/footer",
       element: <Footer />
     }
+  ]);
 
-
-    
-  ])
-
-  return <RouterProvider router={router} />
+  return (
+    <AnimatePresence mode="wait">
+      {/* RouterProvider renders the router */}
+      <RouterProvider router={router} />
+    </AnimatePresence>
+  );
 }
+
 export default App;
