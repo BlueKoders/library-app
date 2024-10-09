@@ -1,0 +1,33 @@
+/* Add this to your CSS file or in a <style> tag */
+
+.fade-in {
+    animation: fadeIn 1s ease-out forwards;
+  }
+  
+  .fade-out {
+    animation: fadeOut 1s ease-in forwards;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1.05);
+    }
+  }
+  
+  

@@ -1,17 +1,17 @@
-// components/BookDetails.js
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
+import PageFlipWrapper from '../../components/PageFlipWrapper';
 import Sidebar from './components/Sidebar';
-
 
 function BookDetails() {
   const [book, setBook] = useState(null);
+  const [sidebarExpanded, setSidebarExpanded] = useState(false);
   const { id } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
     // Fetch book details from API
-    // For now, we'll use dummy data
+    // Dummy data for now
     setBook({ id: 1, title: 'To Kill a Mockingbird', author: 'Harper Lee', year: 1960 });
   }, [id]);
 
@@ -21,24 +21,61 @@ function BookDetails() {
     navigate('/books');
   };
 
-  if (!book) return <div>Loading...</div>;
+  const handleSidebarToggle = (expanded) => {
+    setSidebarExpanded(expanded);
+  };
 
+  // Loading state 
+  if (!book) return (
+    <div className="flex">
+      <Sidebar />
+      <main 
+        className={`flex-1 p-6 transition-all duration-300`}
+        style={{ marginLeft: sidebarExpanded ? '256px' : '64px' }}
+      >
+        Loading...
+      </main>
+    </div>
+  );
 
   return (
-    <div className="bg-white p-4 rounded shadow">
-      <Sidebar/>
-      <h1 className="text-2xl font-bold mb-4">{book.title}</h1>
-      <p>Author: {book.author}</p>
-      <p>Year: {book.year}</p>
-      <div className="mt-4 space-x-2">
-        <Link to={`/edit/${book.id}`} className="bg-blue-500 text-white px-4 py-2 rounded">
-          Edit
-        </Link>
-        <button onClick={handleDelete} className="bg-red-500 text-white px-4 py-2 rounded">
-          Delete
-        </button>
+    <PageFlipWrapper>
+      <div className="flex h-screen"> {/* Ensure it takes full height for scrolling */}
+        <Sidebar 
+          onToggle={handleSidebarToggle} 
+        />
+        <main 
+          className={`flex-1 p-6 transition-all duration-300`}
+          style={{ marginLeft: sidebarExpanded ? '256px' : '64px' }} // Sidebar width adjustment
+        >
+          <div className="bg-white p-6 rounded-lg shadow-md">
+            <h1 className="text-3xl font-bold mb-4">{book.title}</h1>
+            <p className="text-xl mb-2"><span className="font-semibold">Author:</span> {book.author}</p>
+            <p className="text-xl mb-4"><span className="font-semibold">Year:</span> {book.year}</p>
+            <div className="mt-6 space-x-4">
+              <Link 
+                to={`/edit/${book.id}`} 
+                className="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600 transition-colors"
+              >
+                Edit
+              </Link>
+              <button 
+                onClick={handleDelete} 
+                className="bg-red-500 text-white px-6 py-2 rounded-md hover:bg-red-600 transition-colors"
+              >
+                Delete
+              </button>
+            </div>
+            <Link 
+              to="/books" 
+              className="block mt-6 text-blue-500 hover:text-blue-600 transition-colors"
+            >
+              Back to Book List
+            </Link>
+          </div>
+        </main>
       </div>
-    </div>
+    </PageFlipWrapper>
   );
 }
 

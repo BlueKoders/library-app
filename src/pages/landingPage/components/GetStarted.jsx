@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+// import PageFlipWrapper from '../../../components/PageFlipWrapper';
 
 const GetStarted = () => {
     return (
         <section>
+            {/* <PageFlipWrapper> */}
             <div className="flex justify-center items-center min-h-screen bg-gray-100">
                 <div className="bg-white p-8 rounded-lg shadow-lg w-4/5 max-w-4xl">
                     {/* Heading */}
@@ -104,6 +106,7 @@ const GetStarted = () => {
                     </form>
                 </div>
             </div>
+            {/* </PageFlipWrapper> */}
         </section>
     );
 };
