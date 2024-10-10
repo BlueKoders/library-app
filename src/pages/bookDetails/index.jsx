@@ -98,20 +98,20 @@ function BookDetails() {
               {/* Provide a download link for the book file */}
               <div className="mb-4">
                 <span className="font-semibold">Book File:</span>
-                <a href={book.bookFile} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline"> Download</a>
+                <a href={book.bookFile} target="_blank" rel="noopener noreferrer" className="text-orange-500 underline"> Download</a>
               </div>
 
               {/* Buttons for editing or deleting the book */}
               <div className="mt-6 space-x-4">
                 <Link 
                   to={`/edit/${book.id}`} // Link to the edit page for the book
-                  className="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600 transition-colors"
+                  className="bg-orange-500 text-white px-6 py-2 rounded-md hover:bg-orange-600 transition-colors"
                 >
                   Edit
                 </Link>
                 <button 
                   onClick={handleDelete} // Delete button triggers the handleDelete function
-                  className="bg-red-500 text-white px-6 py-2 rounded-md hover:bg-red-600 transition-colors"
+                  className="bg-red-400 text-white px-6 py-2 rounded-md hover:bg-red-500 transition-colors"
                 >
                   Delete
                 </button>
@@ -120,7 +120,7 @@ function BookDetails() {
               {/* Link to go back to the list of books */}
               <Link 
                 to="/books" 
-                className="block mt-6 text-blue-500 hover:text-blue-600 transition-colors"
+                className="block mt-6 text-orange-500 hover:text-orange-700 transition-colors"
               >
                 Back to Book List
               </Link>
