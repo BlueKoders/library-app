@@ -20,7 +20,7 @@ const Login = () => {
     <>
     {/* <PageFlipWrapper> */}
     {/* Main container with full height and centered content */}
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <div className="min-h-screen flex items-center justify-center bg-orange-300">
       {/* Login form card */}
       <div className="bg-white p-8 rounded-lg shadow-md w-96">
         {/* Logo */}
@@ -41,7 +41,7 @@ const Login = () => {
             <input
               type="email"
               id="email"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full p-2 rounded bg-orange-100 border border-orange-200 focus:outline-none focus:ring-2 focus:ring-orange-300"
               placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -54,7 +54,7 @@ const Login = () => {
             <input
               type={showPassword ? "text" : "password"}
               id="password"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full p-2 rounded bg-orange-100 border border-orange-200 focus:outline-none focus:ring-2 focus:ring-orange-300"
               placeholder="Enter your password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -72,14 +72,14 @@ const Login = () => {
           {/* Login submit button */}
           <button
             type="submit"
-            className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+            className="w-full bg-orange-500 text-white py-2 rounded-md hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-700 focus:ring-opacity-50"
           >
             Log In
           </button>
         </form>
         {/* Sign up link */}
         <div className="mt-4 text-center">
-          <Link to="/sign-up" className="text-sm text-blue-500 hover:underline">
+          <Link to="/sign-up" className="text-sm text-orange-500 hover:underline">
             Don't have an account? Sign Up!
           </Link>
         </div>

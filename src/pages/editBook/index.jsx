@@ -33,7 +33,7 @@ function EditBook() {
   return (
     <>
       <PageFlipWrapper>
-        <div className="flex h-screen"> {/* Ensure full height for the layout */}
+        <div className="flex h-screen bg-orange-300"> {/* Ensure full height for the layout */}
           <Sidebar onToggle={handleSidebarToggle} />
           <main 
             className={`flex-1 p-6 transition-all duration-300`} 
@@ -49,7 +49,7 @@ function EditBook() {
                <input 
                  type="text" 
                  id="title" 
-                 className="w-96 px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                 className="w-96 px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-200" 
                  required 
                />
              </div>
@@ -59,7 +59,7 @@ function EditBook() {
                <input 
                  type="text" 
                  id="author" 
-                 className="w-96 px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                 className="w-96 px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-200"
                  required 
                />
              </div>
@@ -69,7 +69,7 @@ function EditBook() {
                <input 
                  type="number" 
                  id="year" 
-                 className="w-96 px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                 className="w-96 px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-200" 
                  required 
                />
              </div>
@@ -77,7 +77,7 @@ function EditBook() {
                   <label for="description" class="block mb-1 font-medium">Description:</label>
                   <textarea
                     id="description"
-                    class="w-full h-32 p-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+                    class="w-full h-32 p-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-200 resize-none"
                     required
                   ></textarea>
                 </div>
@@ -85,7 +85,7 @@ function EditBook() {
              <div className="flex space-x-4">
                <button 
                  type="submit" 
-                 className="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600 transition-colors" 
+                 className="bg-orange-500 text-white px-6 py-2 rounded-md hover:bg-orange-700 transition-colors" 
                >
                  Update Book
                </button>
