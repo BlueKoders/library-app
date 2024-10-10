@@ -11,8 +11,18 @@ function BookDetails() {
 
   useEffect(() => {
     // Fetch book details from API
-    // Dummy data for now
-    setBook({ id: 1, title: 'To Kill a Mockingbird', author: 'Harper Lee', year: 1960 });
+    // Dummy data for now. You can replace this with an API call to fetch actual data.
+    setBook({
+      id: 1,
+      title: 'To Kill a Mockingbird',
+      author: 'Harper Lee',
+      year: 1960,
+      description: 'A novel about the serious issues of race, class, gender, and family in the Deep South.',
+      numberOfPages: 281,
+      publisher: 'J.B. Lippincott & Co.',
+      coverImage: 'path/to/cover.jpg', // Update with the actual path
+      bookFile: 'path/to/book.pdf' // Update with the actual path
+    });
   }, [id]);
 
   const handleDelete = () => {
@@ -40,6 +50,7 @@ function BookDetails() {
 
   return (
     <PageFlipWrapper>
+      
       <div className="flex h-screen"> {/* Ensure it takes full height for scrolling */}
         <Sidebar 
           onToggle={handleSidebarToggle} 
@@ -50,8 +61,20 @@ function BookDetails() {
         >
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h1 className="text-3xl font-bold mb-4">{book.title}</h1>
+            {book.coverImage && (
+              <div className="mb-4">
+                <img src={book.coverImage} alt={`Cover of ${book.title}`} className="max-w-xs rounded-md" />
+              </div>
+            )}
             <p className="text-xl mb-2"><span className="font-semibold">Author:</span> {book.author}</p>
+            <p className="text-xl mb-2"><span className="font-semibold">Publisher:</span> {book.publisher}</p>
+            <p className="text-xl mb-2"><span className="font-semibold">Number of Pages:</span> {book.numberOfPages}</p>
             <p className="text-xl mb-4"><span className="font-semibold">Year:</span> {book.year}</p>
+            <p className="mb-4"><span className="font-semibold">Description:</span> {book.description}</p>
+            <div className="mb-4">
+              <span className="font-semibold">Book File:</span>
+              <a href={book.bookFile} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline"> Download</a>
+            </div>
             <div className="mt-6 space-x-4">
               <Link 
                 to={`/edit/${book.id}`} 
@@ -76,6 +99,7 @@ function BookDetails() {
         </main>
       </div>
     </PageFlipWrapper>
+    
   );
 }
 
