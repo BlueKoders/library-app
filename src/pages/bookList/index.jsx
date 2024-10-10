@@ -47,14 +47,14 @@ function BookList() {
           className={` search flex-1 p-6 transition-all duration-300`}
           style={{ marginLeft: sidebarExpanded ? '256px' : '64px' }} // Adjust margin based on sidebar width
         >
-          <h1 className="text-5xl font-bold text-white  mb-4">Book List</h1>
+          <h1 className="text-5xl font-bold text-orange-600 mt-4 mb-4">Book List</h1>
 
           {/* Search Area */}
           <div className="mb-4 ">
             <input
               type="text"
               placeholder="Search for books..."
-              className="-950 w-72 ml-96 p-5 mt-6 rounded border border-gray-300 focus:outline-none focus:border-blue-500 transition"
+              className="-950 w-full  p-5 mt-6 rounded border border-gray-300 focus:outline-none focus:border-blue-500 transition"
             />
           </div>
 
