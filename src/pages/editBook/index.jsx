@@ -40,7 +40,7 @@ function EditBook() {
             style={{ marginLeft: sidebarExpanded ? '256px' : '64px' }} // Sidebar width adjustment
           >
 
-            <div className="bg-white p-6 rounded-lg shadow-md">
+            <div className="backdrop-blur-2xl bg-white p-6 rounded-lg shadow-2xl w-fit mx-auto">
              <h1 className="text-3xl font-bold mb-6">Edit Book</h1>
              <form onSubmit={handleSubmit} className="space-y-4">
 
@@ -49,9 +49,7 @@ function EditBook() {
                <input 
                  type="text" 
                  id="title" 
-                 value={title} 
-                 onChange={(e) => setTitle(e.target.value)} 
-                 className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                 className="w-96 px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" 
                  required 
                />
              </div>
@@ -61,9 +59,7 @@ function EditBook() {
                <input 
                  type="text" 
                  id="author" 
-                 value={author} 
-                 onChange={(e) => setAuthor(e.target.value)}
-                 className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                 className="w-96 px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                  required 
                />
              </div>
@@ -73,12 +69,18 @@ function EditBook() {
                <input 
                  type="number" 
                  id="year" 
-                 value={year} 
-                 onChange={(e) => setYear(e.target.value)}
-                 className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                 className="w-96 px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" 
                  required 
                />
              </div>
+                <div>
+                  <label for="description" class="block mb-1 font-medium">Description:</label>
+                  <textarea
+                    id="description"
+                    class="w-full h-32 p-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+                    required
+                  ></textarea>
+                </div>
 
              <div className="flex space-x-4">
                <button 
