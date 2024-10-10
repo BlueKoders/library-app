@@ -33,3 +33,16 @@
   .details-bg {
     background-color: #fb923ca9;
   }
+
+  .search {
+    background-image: url(./assets/images/antibook.jpg);
+  }
+   .mirror{
+    border: 1px solid #ffffff2d;
+    margin-left: 100px;
+    margin-right:100px ;
+    border-radius: 10px;
+    backdrop-filter: blur(7px);
+    
+   }
+  
