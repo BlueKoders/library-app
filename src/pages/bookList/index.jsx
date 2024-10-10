@@ -54,7 +54,9 @@ function BookList() {
             <input
               type="text"
               placeholder="Search for books..."
-              className="-950 w-full  p-5 mt-6 rounded border border-gray-300 focus:outline-none focus:border-blue-500 transition"
+              value={searchQuery}
+              onChange={handleSearchChange}
+              className="-950 w-full  p-5 mt-6 rounded border border-orange-300 focus:outline-none focus:border-orange-500 transition"
             />
           </div>
 
@@ -62,7 +64,7 @@ function BookList() {
             {filteredBooks.length > 0 ? (
               filteredBooks.map((book) => (
                 <li key={book.id} className="bg-white w-96 ml-72 p-4 mt-10 rounded shadow">
-                  <Link to={`/books/${book.id}`} className="text-orange-700 font-bold hover:text-blue-800">
+                  <Link to={`/books/${book.id}`} className="text-orange-300 font-bold hover:text-orange-800">
                     {book.title} by {book.author}
                   </Link>
                 </li>
