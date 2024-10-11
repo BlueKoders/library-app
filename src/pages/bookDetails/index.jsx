@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'; // Import React and necessary hooks
 import { useParams, Link, useNavigate } from 'react-router-dom'; // Import hooks for URL parameters, navigation, and links
+import axios from 'axios'; // Import axios to make API requests
 import PageFlipWrapper from '../../components/PageFlipWrapper'; // Custom wrapper component for a page-flip effect
 import Sidebar from './components/Sidebar'; // Import Sidebar component
 import UserProfileBar from '../userProfileBar'; // Import UserProfileBar component to display user info
+import { BASE_URL } from '../../constants'; // Import base URL for API requests
 
 function BookDetails() {
   // State to hold the details of the book to be displayed
@@ -18,26 +20,29 @@ function BookDetails() {
   };
 
   useEffect(() => {
-    // UseEffect to fetch the book details when the component mounts or 'id' changes
-    // Currently using dummy data, replace this with an API call to get actual book data
-    setBook({
-      id: 1,
-      title: 'To Kill a Mockingbird',
-      author: 'Harper Lee',
-      year: 1960,
-      description: 'A novel about the serious issues of race, class, gender, and family in the Deep South.',
-      numberOfPages: 281,
-      publisher: 'J.B. Lippincott & Co.',
-      coverImage: 'path/to/cover.jpg', // Placeholder path to cover image
-      bookFile: 'path/to/book.pdf' // Placeholder path to book file
-    });
-  }, [id]); // Dependency array with 'id', so this runs when 'id' changes
+    const fetchBookDetails = async () => {
+      try {
+        const response = await axios.get(`${BASE_URL}/books/${id}`);
+        console.log(response.data); // Check the structure here
+        setBook(response.data);
+      } catch (error) {
+        console.error('Error fetching book details:', error);
+      }
+    };
+    fetchBookDetails();
+  }, [id]);
+  
 
-  const handleDelete = () => {
+  const handleDelete = async () => {
     // Function to handle deleting a book
-    // You would call a delete API here
-    alert('Book deleted successfully'); // Alert the user after deletion
-    navigate('/books'); // Redirect to the list of books after deletion
+    try {
+      await axios.delete(`${BASE_URL}/books/${id}`); // Call API to delete the book
+      alert('Book deleted successfully'); // Alert the user after deletion
+      navigate('/books'); // Redirect to the list of books after deletion
+    } catch (error) {
+      console.error('Error deleting book:', error);
+      alert('Failed to delete the book');
+    }
   };
 
   const handleSidebarToggle = (expanded) => {
@@ -84,7 +89,7 @@ function BookDetails() {
               {/* If there's a cover image, display it */}
               {book.coverImage && (
                 <div className="mb-4">
-                  <img src={book.coverImage} alt={`Cover of ${book.title}`} className="max-w-xs rounded-md" />
+                  <img src={book.cover} alt={`Cover of ${book.title}`} className="max-w-xs rounded-md" />
                 </div>
               )}
 
@@ -92,13 +97,13 @@ function BookDetails() {
               <p className="text-xl mb-2"><span className="font-semibold">Author:</span> {book.author}</p>
               <p className="text-xl mb-2"><span className="font-semibold">Publisher:</span> {book.publisher}</p>
               <p className="text-xl mb-2"><span className="font-semibold">Number of Pages:</span> {book.numberOfPages}</p>
-              <p className="text-xl mb-4"><span className="font-semibold">Year:</span> {book.year}</p>
-              <p className="mb-4"><span className="font-semibold">Description:</span> {book.description}</p>
+              <p className="text-xl mb-4"><span className="font-semibold">Year:</span> {book.publishDate}</p>
+              <p className="mb-4"><span className="font-semibold">Description:</span> {book.summary}</p>
 
               {/* Provide a download link for the book file */}
               <div className="mb-4">
                 <span className="font-semibold">Book File:</span>
-                <a href={book.bookFile} target="_blank" rel="noopener noreferrer" className="text-orange-500 underline"> Download</a>
+                <a href={book.content} target="_blank" rel="noopener noreferrer" className="text-orange-500 underline"> Download</a>
               </div>
 
               {/* Buttons for editing or deleting the book */}

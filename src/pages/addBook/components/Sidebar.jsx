@@ -7,17 +7,17 @@ const Sidebar = () => {
   const [activeItem, setActiveItem] = useState('library');
 
   const navItems = [
-    { id: 'library', label: 'My Library', icon: Book, path: '/books' }, 
+    { id: 'library', label: 'My Library', icon: Book, path: '/books' },
     { id: 'collection', label: 'Add Collection', icon: FolderPlus, path: '#collection' },
     { id: 'items', label: 'Add Items', icon: FilePlus, path: '/add-new' },
     { id: 'publish', label: 'Publish', icon: Upload, path: '#publish' },
-    { id: 'logout', label: 'Logout', icon: LogOut, path: '/login' },
+    { id: 'logout', label: 'Logout', icon: LogOut, path: '/' },
   ];
 
   useEffect(() => {
     const main = document.querySelector('main');
     if (main) {
-      main.style.marginLeft = isExpanded ? '256px' : '64px';
+      main.style.marginLeft = isExpanded ? '256px' : '64px'; // Adjust the margin for main content based on sidebar width
       main.style.transition = 'margin-left 300ms';
     }
   }, [isExpanded]);
@@ -36,11 +36,11 @@ const Sidebar = () => {
 
       <div className="w-full mt-6">
         {navItems.map((item) => (
-          <Link 
+          <Link
             key={item.id}
-            to={item.path} 
+            to={item.path}
             className={`w-full py-3 px-4 flex items-center text-gray-200 hover:bg-orange-300 transition-all duration-200 ${activeItem === item.id ? 'bg-orange-400 border-r-4 border-white' : ''}`}
-            onClick={() => setActiveItem(item.id)} 
+            onClick={() => setActiveItem(item.id)}
           >
             <item.icon size={20} className="transition-all duration-300 min-w-[20px]" />
             <span className={`ml-4 font-medium whitespace-nowrap transition-opacity duration-300 ${isExpanded ? 'opacity-100' : 'opacity-0'}`}>{item.label}</span>

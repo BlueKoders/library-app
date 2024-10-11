@@ -12,8 +12,6 @@ function EditBook() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Fetch book details from API
-    // For now, we'll use dummy data
     setTitle('To Kill a Mockingbird');
     setAuthor('Harper Lee');
     setYear('1960');

@@ -97,10 +97,10 @@ const GetStarted = () => {
 
                         {/* Submit Button */}
                         <div className="text-center">
-                            <Link to="/add-new"
+                            <Link to="/login"
                                 type="submit"
                                 className="w-48 bg-orange-500 text-white py-2 px-4 rounded-md hover:bg-orange-200 focus:outline-none focus:ring-2 focus:ring-orange-300 focus:ring-offset-2">
-                                Start my Library
+                                Sign-up
                             </Link>
                         </div>
                     </form>
