@@ -1,48 +1,60 @@
 /* Add this to your CSS file or in a <style> tag */
 
 .fade-in {
-    animation: fadeIn 1s ease-out forwards;
-  }
-  
-  .fade-out {
-    animation: fadeOut 1s ease-in forwards;
-  }
-  
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-      transform: scale(0.95);
-    }
-    100% {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-  
-  @keyframes fadeOut {
-    0% {
-      opacity: 1;
-      transform: scale(1);
-    }
-    100% {
-      opacity: 0;
-      transform: scale(1.05);
-    }
-  }
-  
-  .details-bg {
-    background-color: #fb923ca9;
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.fade-out {
+  animation: fadeOut 1s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
   }
 
-  .search {
-    background-image: url(./assets/images/antibook.jpg);
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
-   .mirror{
-    border: 1px solid #ffffff2d;
-    margin-left: 100px;
-    margin-right:100px ;
-    border-radius: 10px;
-    backdrop-filter: blur(7px);
-    
-   }
-  
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+}
+
+.details-bg {
+  background-color: #fb923ca9;
+}
+
+.search {
+  background-image: url(./assets/images/antibook.jpg);
+}
+
+.mirror {
+  border: 1px solid #ffffff2d;
+  margin-left: 100px;
+  margin-right: 100px;
+  border-radius: 10px;
+  backdrop-filter: blur(7px);
+
+}
+
+.books {
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  grid-column-gap: 2px;
+  grid-row-gap: 2px;
+  box-shadow: 1opx 10px 5px orangered;
+}
