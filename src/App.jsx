@@ -10,6 +10,7 @@ import GetStarted from './pages/landingPage/components/GetStarted';
 import Login from './pages/landingPage/components/Login';
 import Footer from './pages/landingPage/components/Footer';
 import PageFlipWrapper from './components/PageFlipWrapper'; // The wrapper for flip effect
+import List from './pages/list';
 
 // App component
 function App() {
@@ -45,7 +46,11 @@ function App() {
     {
       path: "/footer",
       element: <Footer />
-    }
+    },
+    {
+      path: "/list-b",
+      element: <List />
+    },
   ]);
 
   return (
