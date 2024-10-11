@@ -11,7 +11,7 @@ const Sidebar = () => {
     { id: 'collection', label: 'Add Collection', icon: FolderPlus, path: '#collection' },
     { id: 'items', label: 'Add Items', icon: FilePlus, path: '/add-new' },
     { id: 'publish', label: 'Publish', icon: Upload, path: '#publish' },
-    { id: 'logout', label: 'Logout', icon: LogOut, path: '/login' },
+    { id: 'logout', label: 'Logout', icon: LogOut, path: '/' },
   ];
 
   useEffect(() => {
